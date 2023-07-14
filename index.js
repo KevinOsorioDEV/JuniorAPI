@@ -1,6 +1,7 @@
 import express from "express";
 import { swaggerDocs as v1swagger } from "./swagger.js";
-
+import { sincroTables } from "./models/country.js";
+import countriesRoutes from "./routes/countriesRoutes.js";
 const app = express();
 const PORT = 3000;
 
@@ -17,9 +18,7 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.get("/home", (req, res) => {
-  res.send("Home!");
-});
+app.use(countriesRoutes);
 
 app.listen(PORT, () => {
   console.log(`Listenig on port ${PORT}`);

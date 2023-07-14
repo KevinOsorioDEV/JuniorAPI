@@ -1,0 +1,33 @@
+SELECT * FROM countries
+
+insert into countries(country_name) values ('Uruguay')
+
+SELECT * FROM cities
+
+INSERT INTO cities(city_name, country_id) values ('Montevideo', 2)
+
+SELECT * FROM teams
+
+INSERT INTO teams(team_name, team_creation, city_id, league_id, current_season_id) 
+VALUES ('Junior FC', '1924-08-07', 1, 1 , 1)
+
+SELECT * FROM leagues
+INSERT INTO leagues(league_name, country_id) VALUES ('Liga Betplay', 1)
+
+SELECT * FROM seasons
+INSERT INTO seasons(season_name, start_date, end_date) 
+VALUES ('2023-1', '2023-07-14', '2023-12-8')
+
+SELECT * FROM coaches
+INSERT INTO coaches VALUES (1 ,'', 2,1)
+
+SELECT * FROM players
+INSERT INTO players(player_name, postion_id, city_id, current_team_id, current_season_id)
+VALUES ('Santiago Andrés Mele Castañero', 2, 4, 1, 1)
+DELETE FROM players WHERE player_id = 0
+
+
+SELECT * FROM positions
+INSERT INTO positions(position_name) VALUES ('Volante')
+UPDATE positions SET position_name = 'Defensa' WHERE position_id = 3
+

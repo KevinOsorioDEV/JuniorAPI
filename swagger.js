@@ -1,5 +1,7 @@
 import swaggerJsdoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
+import "path";
+import path, { dirname } from "path";
 
 const options = {
   definition: {
@@ -7,13 +9,13 @@ const options = {
     info: {
       title: "JuniorAPI",
       version: "1.0.0",
-      description: "Descripción de mi API",
+      description:
+        "API para guardar datos de mi equipo de futbol, en una base de datos PostgreSQL.",
     },
   },
-  apis: ["./index.js"], // Rutas a los archivos que contienen las rutas de tu API
+  apis: ["./index.js", "./routes/*.js"],
 };
 
-// Generar la documentación basada en las opciones de configuración
 const specs = swaggerJsdoc(options);
 
 export const swaggerDocs = (app, port) => {
