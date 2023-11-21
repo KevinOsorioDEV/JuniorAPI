@@ -15,14 +15,17 @@ export const Cities = sequelize.define(
     country_id: {
       type: DataTypes.INTEGER,
     },
-    city_id: {
-      type: DataTypes.INTEGER,
-    },
-    current_team_id: {
-      type: DataTypes.INTEGER,
-    },
   },
   {
     timestamps: false,
   }
 );
+
+export const CityPost = sequelize.define("cities", {
+  city_name: {
+    type: DataTypes.STRING,
+  },
+  country_id: {
+    type: DataTypes.INTEGER,
+  },
+});

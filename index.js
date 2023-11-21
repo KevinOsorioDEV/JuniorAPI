@@ -4,27 +4,21 @@ import { sincroTables } from "./models/countries.js";
 import countriesRoutes from "./routes/countriesRoutes.js";
 import citiesRoutes from "./routes/citiesRoutes.js";
 import playersRoutes from "./routes/playersRoutes.js";
+import teamsRoutes from "./routes/teamsRoutes.js";
+import coachesRoutes from "./routes/coachesRoutes.js";
 const app = express();
 const PORT = 3000;
 
-/**
- * @swagger
- * /:
- *   get:
- *     summary: Obtiene un mensaje de prueba
- *     responses:
- *       200:
- *         description: Mensaje de prueba
- */
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+app.use(express.json());
 
 app.use(countriesRoutes);
 app.use(citiesRoutes);
 app.use(playersRoutes);
+app.use(teamsRoutes);
+app.use(coachesRoutes);
 
 app.listen(PORT, () => {
   console.log(`Listenig on port ${PORT}`);
   v1swagger(app, PORT);
+  //sincroTables();
 });

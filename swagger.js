@@ -19,7 +19,7 @@ const options = {
 const specs = swaggerJsdoc(options);
 
 export const swaggerDocs = (app, port) => {
-  app.use("/docs", swaggerUi.serve, swaggerUi.setup(specs));
+  app.use("/docs", swaggerUi.serve, swaggerUi.setup(specs, { explorer: true }));
   app.get("/docs.json", (req, res) => {
     res.setHeader("Content-Type", "application/json"), res.send(specs);
   });
